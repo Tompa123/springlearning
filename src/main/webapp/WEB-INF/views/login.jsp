@@ -5,7 +5,7 @@
 <title>yahoooooo from jsp</title>
 </head>
 <body>
-<form action="/login.do" method="post">
+<form action="/spring-mvc/login" method="post">
 <p><font color="red">${errorMessage}</font></p>
 Enter your name <input type="text" name="name"/>
 Enter ur password <input type="password" name="password"> 
