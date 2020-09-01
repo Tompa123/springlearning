@@ -1,14 +1,12 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
-<link href="webjars/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+	<meta charset="ISO-8859-1">
+	<title>Insert title here</title>
+	<link href="webjars/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body>
-Your todo-list:
-<br/>
 
+<body>
 <div class="container">
 	<table class="table">
 		<caption>Your todos are</caption>
@@ -17,6 +15,7 @@ Your todo-list:
 				<th>Description</th>
 				<th>Target Date</th>
 				<th>Is Completed</th>
+				<th/>
 			</tr>
 		</thead>
 		
@@ -26,6 +25,7 @@ Your todo-list:
 					<td>${todo.desc}</td>
 					<td>${todo.targetDate}</td>
 					<td>${todo.done}</td>
+					<td><a href="/delete-todo?id=${todo.id}" class="btn btn-danger">Delete</a></td>
 				</tr>
 			</c:forEach>
 		</tbody>
