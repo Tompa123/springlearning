@@ -5,6 +5,7 @@
 <title>WOOOO</title>
 </head>
 <body>
-You're logged in as ${name}!
+You're logged in as ${name}! <br/>
+Now you can manage your <a href="/list-todos">todo-list.</a>
 </body>
 </html>
