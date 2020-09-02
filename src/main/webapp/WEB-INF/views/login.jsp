@@ -1,15 +1,16 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title>yahoooooo from jsp</title>
-</head>
+<%@ include file="common/header.jspf" %>
 <body>
-<form action="/login" method="post">
-<p><font color="red">${errorMessage}</font></p>
-Enter your name <input type="text" name="name"/>
-Enter ur password <input type="password" name="password"> 
-<input type="submit" value="Login"/>
-</form>
+<%@ include file="common/navigation.jspf" %>
+<div class="container">
+	<form action="/login" method="post">
+		<p><font color="red">${errorMessage}</font></p>
+		Enter your name <input type="text" name="name" class="form-control"/><br/>
+		Enter ur password <input type="password" name="password" class="form-control"> 
+		<br/>
+		<input type="submit" value="Login" class="btn btn-success"/>
+	</form>
+</div>
+
+<%@ include file="common/footer.jspf" %>
 </body>
 </html>

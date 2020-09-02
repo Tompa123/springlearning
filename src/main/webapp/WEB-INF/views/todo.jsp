@@ -1,12 +1,4 @@
-<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-
-<html>
-<head>
-	<meta charset="ISO-8859-1">
-	<title>Insert title here</title>
-	<link href="webjars/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-</head>
-
+<%@ include file="common/header.jspf" %>
 <body>
 <div class="container">
 	<h1>Add a Todo</h1>
@@ -29,7 +21,6 @@
 	</form:form>
 </div>
 
-<script src="webjars/jquery/1.9.1/jquery.min.js"></script>
-<script src="webjars/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<%@ include file="common/footer.jspf" %>
 </body>
 </html>
