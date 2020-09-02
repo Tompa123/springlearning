@@ -7,6 +7,8 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
@@ -30,13 +32,13 @@ public class TodoController {
 	
 	@RequestMapping(value ="/list-todos", method=RequestMethod.GET)
 	public String displayTodoList(ModelMap model) {
-		model.addAttribute("todos", todoService.retrieveTodos(getLoggedInUser()));
+		model.addAttribute("todos", todoService.retrieveTodos(getLoggedInUserName(model)));
 		return "list-todos";
 	}
 	
 	@RequestMapping(value="/add-todo", method=RequestMethod.GET)
 	public String showTodoPage(ModelMap model) {
-		model.addAttribute("todo", new Todo(0, getLoggedInUser(), "Default description", new Date(), false));
+		model.addAttribute("todo", new Todo(0, getLoggedInUserName(model), "Default description", new Date(), false));
 		return "todo";
 	}
 	
@@ -45,7 +47,7 @@ public class TodoController {
 		if (result.hasErrors()) {
 			return "todo";
 		}
-		todoService.addTodo(getLoggedInUser(), todo.getDesc(), new Date(), false);
+		todoService.addTodo(getLoggedInUserName(model), todo.getDesc(), new Date(), false);
 		model.clear();
 		return "redirect:list-todos";
 	}
@@ -74,7 +76,13 @@ public class TodoController {
 		return "redirect:list-todos";
 	}
 	
-	private String getLoggedInUser() {
-		return "bengt";
+	private String getLoggedInUserName(ModelMap model) {
+		Object principal = SecurityContextHolder.getContext()
+				.getAuthentication().getPrincipal();
+
+		if (principal instanceof UserDetails)
+			return ((UserDetails) principal).getUsername();
+
+		return principal.toString();
 	}
 }
