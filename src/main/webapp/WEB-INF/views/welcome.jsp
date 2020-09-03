@@ -5,7 +5,7 @@
 </head>
 <body>
 <%@ include file="common/navigation.jspf" %>
-You're logged in as ${name}! <br/>
-Now you can manage your <a href="/list-todos">todo-list.</a>
+<spring:message code="welcome.caption"/> ${name}! <br/>
+<spring:message code="welcome.prompt"/><a href="/list-todos">todos.</a>
 </body>
 </html>

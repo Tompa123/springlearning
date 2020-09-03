@@ -1,23 +1,24 @@
 <%@ include file="common/header.jspf" %>
 <body>
 <div class="container">
-	<h1>Add a Todo</h1>
+	<h1><spring:message code="todo.add"/></h1>
 
 	<form:form method="post" modelAttribute="todo">
 		<form:hidden path="id"/>
 		<fieldset class="form-group">
-			<form:label path="desc">Description</form:label>
+			<form:label path="desc"><spring:message code="list-todos.description"/></form:label>
 			<form:input path="desc" type="text" class="form-control" required="required"/>
 			<form:errors path="desc" cssClass="text-warning"/>
 		</fieldset>
 		
 		<fieldset class="form-group">
-			<form:label path="targetDate">Target Date</form:label>
+			<form:label path="targetDate"><spring:message code="list-todos.targetDate"/></form:label>
 			<form:input path="targetDate" type="text" class="form-control" required="required"/>
 			<form:errors path="targetDate" cssClass="text-warning"/>
 		</fieldset>
 		
-		<input type="submit" class="btn btn-success" value="Add"/>	
+		<spring:message code="button.add" var="submitCaption"/>
+		<input type="submit" class="btn btn-success" value="${submitCaption}"/>
 	</form:form>
 </div>
 

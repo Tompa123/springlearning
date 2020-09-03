@@ -4,12 +4,12 @@
 	<%@ include file="common/navigation.jspf" %>
 	<div class="container">
 		<table class="table">
-			<caption>Your todos are</caption>
+			<caption><spring:message code="todo.caption"/></caption>
 			<thead>
 				<tr>
-					<th>Description</th>
-					<th>Target Date</th>
-					<th>Is Completed</th>
+					<th><spring:message code="list-todos.description"/></th>
+					<th><spring:message code="list-todos.targetDate"/></th>
+					<th><spring:message code="list-todos.completed"/></th>
 					<th/>
 				</tr>
 			</thead>
@@ -30,7 +30,7 @@
 		</table>
 		
 		<div>
-			<a class="btn btn-success" href="/add-todo">Add</a>
+			<a class="btn btn-success" href="/add-todo"><spring:message code="button.add"/></a>
 		</div>
 	</div>
 
